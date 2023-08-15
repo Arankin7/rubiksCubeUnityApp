@@ -11,14 +11,14 @@ public class GameManager : MonoBehaviour
     {
 
         // If there's already a copy of GameManager, it will be destroyed. 
-        if (Instance != null)
-        {
-            Destroy(gameObject);
-            return;
-        }
+        //if (Instance != null)
+        //{
+        //    Destroy(gameObject);
+        //    return;
+        //}
 
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
+        //Instance = this;
+        //DontDestroyOnLoad(gameObject);
     }
 
     // Update is called once per frame

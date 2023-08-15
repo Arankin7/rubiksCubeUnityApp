@@ -29,6 +29,8 @@ public class ReadCube : MonoBehaviour
         cubeState = FindObjectOfType<CubeState>();
         cubeMap = FindObjectOfType<CubeMap>();
 
+        ReadState();
+
 
     }
 

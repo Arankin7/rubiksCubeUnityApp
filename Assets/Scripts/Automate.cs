@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Automate : MonoBehaviour
 {
@@ -16,11 +17,16 @@ public class Automate : MonoBehaviour
     private CubeState cubeState;
     private ReadCube readCube;
 
+    [SerializeField]
+    Button[] rotateButtons;
+
     // Start is called before the first frame update
     void Start()
     {
         cubeState = FindObjectOfType<CubeState>();
         readCube = FindObjectOfType<ReadCube>();
+        AddListeners();
+        //rotateButtons[0].onClick.AddListener(delegate { ButtonMoves(rotateButtons[0].gameObject.name); });
     }
 
     // Update is called once per frame
@@ -33,8 +39,24 @@ public class Automate : MonoBehaviour
             // remove the move at the first index
             moveList.Remove(moveList[0]);
         }
+
     }
 
+    private void AddListeners()
+    {
+        rotateButtons[0].onClick.AddListener(delegate { ButtonMoves(rotateButtons[0].gameObject.name); });
+        rotateButtons[1].onClick.AddListener(delegate { ButtonMoves(rotateButtons[1].gameObject.name); });
+        rotateButtons[2].onClick.AddListener(delegate { ButtonMoves(rotateButtons[2].gameObject.name); });
+        rotateButtons[3].onClick.AddListener(delegate { ButtonMoves(rotateButtons[3].gameObject.name); });
+        rotateButtons[4].onClick.AddListener(delegate { ButtonMoves(rotateButtons[4].gameObject.name); });
+        rotateButtons[5].onClick.AddListener(delegate { ButtonMoves(rotateButtons[5].gameObject.name); });
+        rotateButtons[6].onClick.AddListener(delegate { ButtonMoves(rotateButtons[6].gameObject.name); });
+        rotateButtons[7].onClick.AddListener(delegate { ButtonMoves(rotateButtons[7].gameObject.name); });
+        rotateButtons[8].onClick.AddListener(delegate { ButtonMoves(rotateButtons[8].gameObject.name); });
+        rotateButtons[9].onClick.AddListener(delegate { ButtonMoves(rotateButtons[9].gameObject.name); });
+        rotateButtons[10].onClick.AddListener(delegate { ButtonMoves(rotateButtons[10].gameObject.name); });
+        rotateButtons[11].onClick.AddListener(delegate { ButtonMoves(rotateButtons[11].gameObject.name); });
+    }
     public void ShuffleCube()
     {
         List<string> moves = new List<string>();
@@ -51,6 +73,15 @@ public class Automate : MonoBehaviour
         moveList = moves;
 
 
+    }
+
+    public void ButtonMoves(string buttonName)
+    {
+        List<string> moves = new List<string>();
+
+        moves.Add(buttonName);
+
+        moveList = moves;
     }
 
     void DoMove(string move)
